@@ -221,7 +221,8 @@ end
 local Running = true
 local showBuildABot, openBuildABot = true, true
 local function guiLoop()
-    showBuildABot, openBuildABot = ImGui.Begin("BuildABot", showBuildABot)
+    openBuildABot, showBuildABot = ImGui.Begin("BuildABot", showBuildABot)
+    if not openBuildABot then mq.exit() end
     if showBuildABot then
         ImGui.SetWindowSize("BuildABot", ImVec2(512, 768), ImGuiCond.Always)
         drawCreateBotScreen()
